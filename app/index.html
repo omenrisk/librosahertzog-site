@@ -123,6 +123,22 @@
   var hint    = document.getElementById("hint");
   var stores  = document.querySelector(".stores");
 
+  // Atribucion por canal: /app/?utm_source=X&utm_medium=Y&utm_campaign=Z
+  // pasa los utm al referrer de Play (Play Console los muestra por fuente).
+  // Sin utm en la URL, queda el referrer por defecto del boton.
+  try {
+    var q = new URLSearchParams(location.search);
+    var parts = [];
+    ["utm_source","utm_medium","utm_campaign"].forEach(function(k){
+      var v = q.get(k);
+      if (v && /^[\w.-]{1,60}$/.test(v)) parts.push(k + "=" + v);
+    });
+    if (parts.length) {
+      and_btn.href = "https://play.google.com/store/apps/details?id=com.luispalma.seguridadpro&referrer="
+                   + encodeURIComponent(parts.join("&"));
+    }
+  } catch (e) { /* navegador viejo sin URLSearchParams: se queda el default */ }
+
   // En móvil: la tienda que corresponde va primero y en sólido; la otra queda de respaldo.
   if (ios) {
     and_btn.className = "store secondary";
