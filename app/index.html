@@ -109,9 +109,14 @@
 <script>
 (function(){
   var ua = navigator.userAgent || "";
-  var ios = /iPad|iPhone|iPod/.test(ua) ||
-            (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1); // iPadOS 13+
-  var android = /Android/.test(ua);
+
+  // Android se evalua PRIMERO: la heuristica de iPadOS mira maxTouchPoints y
+  // da falso positivo en navegadores que emulan movil sobre un Mac.
+  var android = /Android/i.test(ua);
+  var ios = !android && (
+              /iPad|iPhone|iPod/i.test(ua) ||
+              (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1)  // iPadOS 13+ se anuncia como Mac
+            );
 
   var ios_btn = document.getElementById("btn-ios");
   var and_btn = document.getElementById("btn-android");
