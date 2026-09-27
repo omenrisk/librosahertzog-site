@@ -220,8 +220,8 @@ EN_PAGE = f"""<!DOCTYPE html>
 
 <section class="bio">
   <h2>About the author</h2>
-  <p>Luis Palma is a security professional with operational and management experience. He served in the U.S. Marine Corps, worked in police functions and currently coordinates security programs in the region. He holds a Bachelor's in Criminal Justice and keeps up continuing education on a recurring basis.</p>
-  <p class="sello">He publishes the <strong>SECURITY EXPERT</strong> series under the <strong>A.&nbsp;Hertzog</strong> imprint.</p>
+  <p>A.&nbsp;Hertzog writes for the security manager, the investigator and the professional who has to get the work right on Monday morning, not admire theory. Step by step, built on real cases (his own mistakes and other people's) and on one discipline: document well, then decide.</p>
+  <p>Hertzog served in the U.S. Marine Corps, worked in law enforcement and holds a Bachelor's in Criminal Justice. He writes the way he works: method, evidence, judgment.</p>
 </section>
 
 <section id="books">
